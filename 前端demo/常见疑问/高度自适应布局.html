@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高度自适应(W3C标准做法)</title>
+    <style>
+        body,div{
+            margin: 0;
+            padding: 0;
+            color: #376800;
+        }
+        .top{
+            background: #40a1d9;
+            height: 100px;
+        }
+        .main{
+            background: #ffff00;
+            width: 100%;
+            position: absolute;
+            top: 100px;
+            /*把top设置100px，bottom设置0 ，就达到高度自适应*/
+            bottom: 0;
+            /*但是这是我们使用left或top属性来进行定位时所遵照的原则，如果我们使用的是bottom或right属性来进行定位，那参照点又是什么呢？不知道大家想过这个问题没有。
+
+这里先说明一下，left和top属性的权重是高于right和bottom，只有在没定义left或top的情况下，相应的right和bottom属性才会起作用，如果left或top定义了，则会忽略right或bottom的值
+那么bottom的参照点是哪里呢，是浏览器可视区域(viewport)的底部边缘！*/
+        }
+    </style>
+</head>
+
+<body>
+<!--<div class="bannar">我是随窗口的广告</div>-->
+    <div class="top"> 我是顶部栏目</div>
+    <div class="main"> 绝对定位元素，这里的参考是html不是body</div>
+
+
+</body>
+</html>

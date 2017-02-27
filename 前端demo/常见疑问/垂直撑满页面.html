@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    /* 核心代码
+    div的100%是从其上一级div的宽高继承来的，有一点很关键，就是要设置div100%显示，必须设置其上一级div的宽度或高度，否则无效。*/
+    /*前面总得有个容器说明他的高度是多少。这样的话div才能按比例100%继承上一级的高度可惜的是浏览器一般默认解释为内容的高度，而不是100%。解决方法：只要为html和body设置高度为100%就可以了html,body{height:100%;}这样之后div会按比例来继承上一级的高度了*/
+    html,body {
+    height: 100%;
+        width: 100%;
+    }
+
+
+    #map{
+        width: 82%;
+        height: 100%;
+        background: #ffff00;
+
+        float: left;
+    }
+
+    #right{
+        width: 18%;
+        height: 100%;
+        background: palevioletred;
+
+        float: left;
+    }
+
+
+</style>
+<body>
+    <div id="map" ></div>
+    <div id="right" ></div>
+
+</body>
+</html>

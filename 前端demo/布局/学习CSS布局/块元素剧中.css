@@ -1,0 +1,11 @@
+#main {
+  width: 600px;
+  margin: 0 auto; 
+}
+
+
+方案二 不会出现水平滚动条 特别时候额移动端
+#main {
+  max-width: 600px;  
+  margin: 0 auto; 
+}

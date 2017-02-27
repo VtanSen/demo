@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字导航</title>
+</head>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    /*第一部分 居中导航栏*/
+    .nav{
+        padding: 10px 0px;
+        background-color: #376822;
+        border-radius: 10px;
+        color: white;
+    }
+    ul{
+        /*ul是块元素，宽度为父元素，所以应该让内容（文字）居中*/
+        text-align: center;
+        /*display: block;*/
+        /*margin: 0 auto;*/
+    }
+    ul li{
+        display: inline-block;
+        padding-right: 4px  ;
+        border-right-style: solid ;
+        border-right-width: 1px;
+    }
+    ul li:last-child{
+        border-right-width: 0px;
+    }
+
+
+    /*第二部分 左边靠的导航栏 使用绝对定位*/
+</style>
+<body>
+    <div class="nav">
+        <ul>
+            <li>栏目一</li>
+            <li>栏目二</li>
+            <li>栏目三</li>
+            <li>栏目四</li>
+        </ul>
+    </div>
+
+</body>
+</html>

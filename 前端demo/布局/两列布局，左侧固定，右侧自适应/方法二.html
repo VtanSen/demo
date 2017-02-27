@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .left{
+        position: absolute;
+        width: 200px;
+        height: 100%;
+        background-color: #40a1d9;
+    }
+    .right{
+        background-color: #376800;
+        /*width: 100%;*/
+        /*height: 100%;*/
+        margin-left: 200px;
+    }
+</style>
+<body>
+<!--
+方法二，绝对定位absolute，使用方法一的HTML结构，左侧绝对定位，拉出文档流，高度100%并设置一定宽度400px。右侧自动宽度（将占100%）并设置margin-left：400px。 -->
+
+<div class="wrap">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+</body>
+</html>

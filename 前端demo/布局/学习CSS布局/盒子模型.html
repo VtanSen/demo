@@ -1,0 +1,67 @@
+<!--width height指的是元素内容的大小 ，不包括padding 和margin-->
+
+<!--若内容是段落的话，文字不多的话，文字的最大长度就是宽度-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .simple{
+            width: 500px;
+            margin: 20px auto;
+            background: indianred;
+
+        }
+        .fancy{
+            width: 500px;
+            margin: 20px auto;
+            padding: 50px;
+            border-width: 10px;
+            background: indianred;
+
+        }
+
+
+        .simple2{
+            width: 500px;
+            margin: 20px auto;
+            background: indianred;
+
+            box-sizing: border-box;
+        }
+        .fancy2{
+            width: 500px;
+            margin: 20px auto;
+            padding: 50px;
+            border-width: 10px;
+            background: indianred;
+
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <p class="simple">我的长度</p>
+    <p class="fancy">我的长度</p>
+
+    <p class="simple2">我的长度</p>
+    <p class="fancy2">我的长度</p>
+</body>
+</html>
+
+
+<!-- 一些CSS开发者想要页面上所有的元素都有如此直接的表现（当你设置一个元素为 box-sizing: border-box; 时，此元素的内边距和边框不再会增加它的宽度。）。所以开发者们把以下CSS代码放在他们页面上：
+    * {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+-->
+

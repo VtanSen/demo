@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        html,body{
+            height: 100%;
+        }
+        /*如果是垂直窗口的时候记得所有父元素都要设置宽度大小才能设置百分值。*/
+        .container{
+            height: 100%;
+        }
+        .left{
+            float: left;
+            height: 100%;
+            width: 200px;
+            background-color: #40a1d9;
+        }
+        .right{
+            float: right;
+            width: 200px;
+            height: 200%;
+            background-color: #376822
+        }
+        .main{
+            /*前面浮动的元素已经脱离了文档流*/
+            margin-left: 220px;
+            margin-right: 220px;
+            background-color: #994488;
+            /*min-width: 400px;*/
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="left"> </div> <!-- //具体的组件可以放在里面作为一个div-->
+
+    <div class="right"></div>
+    <div class="main">dddddddddddd</div>
+</div>
+</body>
+</html>

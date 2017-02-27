@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #a,#b{
+            height: 100px;
+            background-color: #40a1d9;
+        }
+        #a{
+            background-color: red;
+
+        }
+    </style>
+
+</head>
+<body>
+        <h3>层级关系的比较</h3>
+        <p>对于同级元素，默认(或position:static)情况下文档流后面的元素会覆盖前面的</p>
+
+
+        <p>
+            对于同级元素，position不为static且z-index存在的情况下z-index大的元素会覆盖z-index小的元素，
+            即z-index越大优先级越高。3. IE6/7下position不为static，且z-index不存在时z-index为0，除此之外的浏览器z-index为auto。
+
+            4. z-index为auto的元素不参与层级关系的比较，由向上遍历至此且z-index不为auto的元素来参与比较。
+        </p>
+
+        <div id="a">A</div>
+        <div id="b">B</div>
+
+
+</body>
+</html>

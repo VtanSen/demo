@@ -1,0 +1,17 @@
+/* 多点式幻灯指示控制器-默认底部居中 */
+
+/*注意绝对定位得有一个定位过得作为参照*/
+.u-pointer{position:absolute;bottom:10px;left:0;right:0;z-index:50;text-align:center;line-height:0;}
+.u-pointer i{display:inline-block;width:10px;height:10px;margin:0 0 0 5px;border-radius:50%;box-shadow:inset 0 1px 0 rgba(0,0,0,0.5);cursor:pointer;background:#ccc;}
+.u-pointer i:first-child{margin-left:0;}
+.u-pointer i:hover{background:#999;}
+.u-pointer i.z-click{background:#40a1d9;}
+/* 居右 */
+.u-pointer-rt{right:10px;left:auto;}
+
+
+/* 用法示例
+<span class="u-pointer"><i class="z-click"></i><i></i><i></i><i></i><i></i></span>
+<span class="u-pointer u-pointer-rt"><i class="z-click"></i><i></i><i></i><i></i><i></i></span>
+
+*/

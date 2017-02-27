@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位</title>
+
+    <style>
+        .relative1 {
+            position: relative;  /*仅仅对自身元素有影响，但没设置属性所以跟position: static;一样*/
+        }
+        .relative2 {
+            position: relative;
+            top: -20px;
+            left: 20px;
+            background-color: white;
+            width: 600px;
+        }
+
+        .fixed {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            height: 100px;
+
+            border-style:solid;
+            border-color:  orangered #376800;
+            background: palevioletred;
+        }
+
+        /*绝对定位部分*/
+        .relative {
+            position: relative;
+            width: 600px;
+            height: 400px;
+
+            /*不是重点*/
+            margin: auto;
+        }
+        .absolute {
+            position: absolute;
+            top: 100px;
+            right: 0;
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h3> position 属性值有一大堆</h3>
+    <h3>
+        static 是默认值。任意 position: static; 的元素不会被特殊的定位。一个 static 元素表示它不会被“positioned”，一个 position 属性被设置为其他值的元素表示它会被“positioned”，这个会作为绝对定位的参考。
+    </h3>
+
+    <h3>相对定位：指的相对原先自己的所占位置</h3>
+    <p class="relative1" style="background: red">relative 表现的和 static 一样，除非你添加了一些额外的属性。</p>
+    <p class="relative2" style="background: #eeeeee">在一个相对定位（position属性的值为relative）的元素上设置 top 、 right 、 bottom 和 left 属性会使其偏离其正常位置。其他的元素的位置则不会受该元素的影响发生位置改变来弥补它偏离后剩下的空隙。</p>
+
+    <h3>固定定位（position:fixed）元素会相对于视窗来定位，这意味着即便页面滚动，它还是会停留在相同的位置。和 relative 一样， top 、 right 、 bottom 和 left 属性都可用。</h3>
+
+    <p class="fixed">我是固定定位,但是移动浏览器支持差</p>
+
+    <h3>绝对定位 position：absolute  相对于最近的被positioned的祖先元素，如果没有那么它是相对于文档的 body 元素，并且它会随着页面滚动而移动</h3>
+    <p> 技巧：也就是说一般可以在绝对定位前面加一个相对定位作为父元素</p>
+
+    <div class="relative" style="background: rebeccapurple">这个元素是相对定位的。如果它是 position: static; ，那么它的绝对定位子元素会跳过它直接相对于body元素定位。
+        <div class="absolute" style="background: chartreuse">这个元素是绝对定位的。它相对于它的父元素定位。父元素是.relative</div>
+    </div>
+    <div class="absolute" style="background: chartreuse">这个元素是绝对定位的。它相对于它的父元素定位。父元素是body</div>
+
+
+</body>
+</html>

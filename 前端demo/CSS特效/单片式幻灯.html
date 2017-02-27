@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>幻灯片(还没完成)</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="多点式幻灯指示器.css">
+</head>
+
+<style>
+        .slide{
+            width: 400px;
+            height: 250px;
+             /*//没设置具体的偏移属性，所以这个是给子代元素绝对定位作参考*/
+            position: relative;
+            /*不加这句会使得各个li超出父容器大小*/
+            overflow:hidden;
+        }
+        .slide ul {
+            list-style: none;
+
+            /*position: absolute;
+            top: 0;
+            width:100%;height:100%;*/
+        }
+         .slide ul li {  //让所有幻灯图片都绝对定位
+            position: absolute;
+            top: 0;
+            /*防止图片大小不一样的时候也可以100%充满幻灯片*/
+            width:100%;height:100%;
+
+            z-index:20;
+        }
+
+         /*切换特效*/
+         .slide ul li{
+             opacity:0;-webkit-transition:0.5s ease-out;-moz-transition:0.5s ease-out;-ms-transition:0.5s ease-out;transition:0.5s ease-out;-webkit-transition-property:opacity,left,top;-moz-transition-property:opacity,left,top;-ms-transition-property:opacity,left,top;transition-property:opacity,left,top;
+         }
+
+         /*默认初始页面 其他的js控制不透明度opacity*/
+         .slide li.z-click{
+             z-index:21;opacity:1;
+         }
+
+
+
+</style>
+<body>
+    <div class="slide">
+        <ul>
+            <li class="z-click"><a href="#"><img src="./img/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./img/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./img/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./img/4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./img/5.jpg" alt=""></a></li>
+        </ul>
+        <span class="u-pointer"> <i class="z-click"></i><i></i><i></i><i></i><i></i></span>
+    </div>
+
+    <!--<script>
+        (function (_slides) {
+            //执行主逻辑
+            each(_slides,function(_slide,i){
+                var _ctrls = _slide.getElementsByTagName('i');
+                var _lists = _slide.getElementsByTagName('li');
+                each(_ctrls,function(_ctrl,i){//每个点都绑定点击事件
+                    _ctrl.onclick=function(){
+                        each(_lists,function(_list,i){
+                            delClass(_list,"z-click");
+                        }); //清除带有z-click类名的l
+                        each(_ctrls,function(_ctrl,i){
+                            delClass(_ctrl,"z-click"); //应该是_ctls吧
+                        }); //清除点击按钮的
+//                        给当前点击的元素添加被点击类效果
+                        addClass(_lists[i],"z-click");
+                        addClass(_ctrls[i],"z-click");
+                    }
+                });
+
+
+            //函数库
+            function each(_objects,_fn) {
+                for(var i=0,len=_objects.length;i<len;i++){
+                    _fn(_objects[i],i);
+                }
+            }
+
+            function hasClass(_object,_clsname) {
+                var _clsname = _clsname.replace(".","");
+                var _sCls = " "+(_object.className)+" ";
+                return (_sCls.indexOf(" "+_clsname+"")!= -1)?true :false;
+            }
+                function toClass(_str){
+                    var _str = _str.toString();
+                    _str = _str.replace(/(^\s*)|(\s*$)/g,"");
+                    _str = _str.replace(/\s{2,}/g," ");
+                    return _str;
+                }
+                function addClass(_object,_clsname){
+                    var _clsname = _clsname.replace(".","");
+                    if(!hasClass(_object,_clsname)){
+                        _object.className = toClass(_object.className+(" "+_clsname));
+                    }
+                }
+                function delClass(_object,_clsname){
+                    var _clsname = _clsname.replace(".","");
+                    if(hasClass(_object,_clsname)){
+                        _object.className = toClass(_object.className.replace(new RegExp("(?:^|\\s)"+_clsname+"(?=\\s|$)","g")," "));
+                    }
+                }
+
+
+
+
+
+
+        })(document.getElementsByClassName("slide"))
+    </script>-->
+    <!-- JS只需改变className（以下示例仅作参考）： -->
+    <script type="text/javascript">
+        (function(_slides){
+            each(_slides,function(_slide,i){
+                var _ctrls = _slide.getElementsByTagName('i');
+                var _lists = _slide.getElementsByTagName('li');
+                each(_ctrls,function(_ctrl,i){
+                    _ctrl.onclick=function(){ //清除其他并正确添加当前相关元素的点击样式类
+                        each(_lists,function(_list,i){
+                            delClass(_list,"z-click");
+                        });
+                        each(_ctrls,function(_ctrl,i){
+                            delClass(_ctrl,"z-click");
+                        });
+                        addClass(_lists[i],"z-click");
+                        addClass(_ctrls[i],"z-click");
+                    }
+                });
+            });
+            function hasClass(_object,_clsname){
+                var _clsname = _clsname.replace(".","");
+                var _sCls = " "+(_object.className)+" ";
+                return (_sCls.indexOf(" "+_clsname+" ") != -1) ? true : false;
+            }
+            function toClass(_str){
+                var _str = _str.toString();
+                _str = _str.replace(/(^\s*)|(\s*$)/g,"");
+                _str = _str.replace(/\s{2,}/g," ");
+                return _str;
+            }
+            function addClass(_object,_clsname){
+                var _clsname = _clsname.replace(".","");
+                if(!hasClass(_object,_clsname)){
+                    _object.className = toClass(_object.className+(" "+_clsname));
+                }
+            }
+            function delClass(_object,_clsname){
+                var _clsname = _clsname.replace(".","");
+                if(hasClass(_object,_clsname)){
+                    _object.className = toClass(_object.className.replace(new RegExp("(?:^|\\s)"+_clsname+"(?=\\s|$)","g")," "));
+                }
+            }
+            function each(_objects,_fn){
+                for(var i=0,len=_objects.length;i<len;i++){
+                    _fn(_objects[i],i);
+                }
+            }
+        })(document.getElementsByTagName('div'));
+    </script>
+</body>
+</html>
